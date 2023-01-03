@@ -1,0 +1,104 @@
+\documentclass[a4paper,timesnewroman,12pt,oneside]{report}
+\usepackage[a4paper, margin={2cm}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{graphicx,array}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage[sf,bf]{titlesec}
+\usepackage{fontspec}
+\usepackage{lipsum}
+\usepackage{titletoc}
+\usepackage[skip=12pt plus1pt, indent=40pt]{parskip}
+\usepackage{longtable}
+\usepackage{pgffor}
+\usepackage{amsmath}
+\usepackage{subfigure,float}
+\newcommand{\setnumimages}[1]{\def\numimages{#1}}
+\allowdisplaybreaks
+\fancypagestyle{plain}{}
+\renewcommand{\contentsname}{\centering \Huge \vspace{-2cm}  TABLE OF CONTENTS}
+\renewcommand\bibname{REFERENCE}
+\renewcommand*\listfigurename{\centering \Huge \vspace{-2cm} LIST OF FIGURES}
+\renewcommand*\listtablename{\centering \Huge \vspace{-2cm} LIST OF TABLES}
+\titlespacing*{\chapter}{0pt}{5pt}{10pt}
+%%%%%%%%%%%%%%%%%%%%%%%
+\title{Seminar Report-Pothole and Speed Bump Detection}
+\author{Anand Ajith}
+\date{December 2022}
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\doublespacing
+%\maketitle
+\pagenumbering{roman}
+\input{coverpage.tex}  
+\clearpage
+\input{certificate.tex}
+\addcontentsline{toc}{chapter}{Certificate}
+\clearpage
+
+
+%%%%%%%%%%%%%Header and Footer %%%%%%%%%%%%%%%%%%%%
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+
+\fancyhead[L]{Speed Bump and Pothole Detection for Autonomous cars}
+\fancyhead[R]{RET19IT011} %Registration Number Here
+\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+\fancyfoot[L]{Department Of Information Technology}
+\fancyfoot[R]{\thepage}
+\pagestyle{fancy}
+%%%%%%%Acknowledgement and Abstract
+\input{Acknowledgement.tex}
+\addcontentsline{toc}{chapter}{Acknowledgement}
+\clearpage
+\input{abstract.tex}
+\addcontentsline{toc}{chapter}{Abstract}
+    \begin{center}
+        \tableofcontents
+    \end{center}
+    \begin{center}
+        \listoffigures
+    \end{center}
+    \begin{center}
+        \listoftables
+    \end{center}
+
+%%%%%%%%Chapters From Here
+
+%%%Chapter Styling
+\titleformat{\chapter}[display]
+  {\normalfont\LARGE\bfseries\sffamily \centering \vspace{-2cm}}{\filcenter\underline{\MakeUppercase{  {\chaptertitlename}}\ \thechapter}}{-20pt}{\underline}
+
+%%%%Section Styling
+\titleformat{\section}[block]{\Large\bfseries\sffamily}{\thesection.}{20pt}{\MakeUppercase}
+%%%%Subsection Styling
+\titleformat{\subsection}[block]{\large\bfseries\sffamily}{\thesubsection.}{20pt}{}
+\newcommand{\setupname}[1][\chaptername]{
+\titlecontents{chapter}[0pt]{\vspace{1ex}}{\bfseries#1~\thecontentslabel:\quad}{\bfseries}{\bfseries\hfill\contentspage}[]
+}
+\setupname
+\pagenumbering{arabic}
+\input{Chapters/chapter1.tex}
+\clearpage
+\input{Chapters/chapter2.tex}
+\clearpage
+\input{Chapters/chapter3.tex}
+\clearpage
+\input{Chapters/chapter4.tex}
+\clearpage
+\input{Chapters/chapter5.tex}
+\clearpage
+%%%%%refs
+\bibliographystyle{ieeetr} % We choose the "plain" reference style
+\bibliography{IEEEabrv,bibfile} % Entries are in the refs.bib file
+\clearpage
+%%%%%%%%%%%%%%%%        APPENDIX      %%%%%%%%%%%%%%%%%%%%%%%
+\input{appendix1.tex}
+\addcontentsline{toc}{chapter}{Appendix I}
+\clearpage
+\addcontentsline{toc}{chapter}{Appendix II}
+\input{appendix2.tex}
+\clearpage
+
+\end{document}
